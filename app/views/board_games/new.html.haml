@@ -1,0 +1,12 @@
+.row
+	%h1.text-center 
+		%strong New board game
+
+= form_for @board_game, url: { action: "create" } do |f|
+	.row
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :name, placeholder: "Name"
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :image_url, placeholder: "Image Url"
+		.medium-8.large-6.columns.small-centered
+			= f.submit "Create", class: "button small right"

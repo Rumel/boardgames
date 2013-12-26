@@ -12,8 +12,10 @@
   </head>
 
   <body>
-
-    <%= yield %>
+    <%= render 'layouts/navbar' %>
+    <main role="main">
+      <%= yield %>      
+    </main>
     <%= javascript_include_tag "application" %>
   </body>
 </html>

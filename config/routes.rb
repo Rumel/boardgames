@@ -5,6 +5,10 @@ Boardgames::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
+  root 'board_games#index'
+
+  resources :board_games
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

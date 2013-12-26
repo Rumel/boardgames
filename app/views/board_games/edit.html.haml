@@ -1,0 +1,12 @@
+%br
+.row.text-center
+	%h1
+		%strong Edit Board Game
+= form_for @board_game do |f|
+	.row
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :name, placeholder: "Name"
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :image_url, placeholder: "Image Url"
+		.medium-8.large-6.columns.small-centered
+			= f.submit "Save changes", class: "button columns"

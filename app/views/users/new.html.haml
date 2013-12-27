@@ -1,0 +1,17 @@
+.row
+	.medium-8.large-6.columns.small-centered
+		%h1.text-center
+			%strong Register
+= form_for @user, url: register_path do |f|
+	.row
+		= render 'shared/error_messages', object: f.object
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :name, placeholder: "Name"
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :email, placeholder: "Email"
+		.medium-8.large-6.columns.small-centered
+			= f.password_field :password, placeholder: "Password"
+		.medium-8.large-6.columns.small-centered
+			= f.password_field :password_confirmation, placeholder: "Password confirmation"
+		.medium-8.large-6.columns.small-centered
+			= f.submit "Register", class: "button small right"

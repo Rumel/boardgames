@@ -1,0 +1,5 @@
+- if object.errors.any?
+	- object.errors.full_messages.each do |msg|
+		.alert-box.medium-8.large-6.columns.small-centered{ data: { alert => true } }
+			= msg
+			%a.close{href: "#" } &times;

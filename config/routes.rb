@@ -8,6 +8,9 @@ Boardgames::Application.routes.draw do
 
   root 'board_games#index'
 
+  get 'register', to: 'users#new'
+  post 'register', to: 'users#create'
+
   resources :board_games
 
   # Example of regular route:

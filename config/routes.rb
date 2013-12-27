@@ -1,17 +1,19 @@
 Boardgames::Application.routes.draw do
-  get "users/new"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  root 'board_games#index'
+  root 'sessions#new'
 
   get 'register', to: 'users#new'
   post 'register', to: 'users#create'
+  get 'signin', to: 'sessions#new'
+  get 'signout', to: 'sessions#destroy'
 
   resources :board_games
+  resources :sessions, only: [:new, :create, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

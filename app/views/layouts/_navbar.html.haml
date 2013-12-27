@@ -1,22 +1,26 @@
-%head
-	.contain-to-grid.fixed
-		%nav.top-bar{ data: { "topbar" => true } }
-			%ul.title-area
-				%li.name
-					%h1
-						%a{ href: board_games_path } Board Games
-				%li.toggle-topbar.menu-icon
-					%a{ href: "#" }
-						%span Menu
-			%section.top-bar-section
-				%ul.left
-					%li.has-dropdown
-						%a{ href: board_games_path } Board Games
-						%ul.dropdown
-							%li
-								%a{href: new_board_game_path } New
-					%li
-						%a{ href: "#" } Players
-				%ul.right
-					%li
-						%a{ href: "#" } Current User
+- if signed_in?
+	%head
+		.contain-to-grid.fixed
+			%nav.top-bar{ data: { "topbar" => true } }
+				%ul.title-area
+					%li.name
+						%h1
+							%a{ href: board_games_path } Board Games
+					%li.toggle-topbar.menu-icon
+						%a{ href: "#" }
+							%span Menu
+				%section.top-bar-section
+					%ul.left
+						%li.has-dropdown
+							%a{ href: board_games_path } Board Games
+							%ul.dropdown
+								%li
+									%a{href: new_board_game_path } New
+						%li
+							%a{ href: "#" } Players
+					%ul.right
+						%li.has-dropdown
+							%a{ href: "#" }= current_user.name
+							%ul.dropdown
+								%li
+									%a{href: signout_path } Sign out

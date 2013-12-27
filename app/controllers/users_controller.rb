@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
   	def new
-  		@user = User.new
+      if signed_in?
+        redirect_to board_games_path
+      else
+        @user = User.new
+      end
   	end
 
   	def create
@@ -8,7 +12,6 @@ class UsersController < ApplicationController
   		if @user.save
   			redirect_to board_games_path
   		else
-  			# Do some error stuff here
   			render 'new'
   		end
   	end

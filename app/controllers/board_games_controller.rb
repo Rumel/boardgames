@@ -1,7 +1,9 @@
 class BoardGamesController < ApplicationController
+	before_action :signed_in_user
+	before_action :correct_user, only: [:edit, :update, :show]
 
 	def index
-		@board_games = BoardGame.all.sort_by { |boardgame| boardgame.name }
+		@board_games = current_user.board_games.sort_by { |boardgame| boardgame.name }
 
 		respond_to do |format| 
 			format.html
@@ -14,7 +16,7 @@ class BoardGamesController < ApplicationController
 	end
 
 	def create
-		@board_game = BoardGame.new(board_game_params)
+		@board_game = current_user.board_games.new(board_game_params)
 
 		@board_game.save
 
@@ -43,5 +45,11 @@ class BoardGamesController < ApplicationController
 
 		def board_game_params
 			params.require(:board_game).permit(:name, :image_url)
+		end
+
+		def correct_user
+			if !current_user.board_games.include?(BoardGame.find(params[:id]))
+				redirect_to board_games_path
+			end
 		end
 end

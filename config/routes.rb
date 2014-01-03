@@ -13,6 +13,7 @@ Boardgames::Application.routes.draw do
   get 'signout', to: 'sessions#destroy'
 
   resources :board_games
+  resources :game_plays
   resources :sessions, only: [:new, :create, :destroy]
 
   # Example of regular route:

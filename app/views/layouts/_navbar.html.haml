@@ -14,8 +14,17 @@
 						%li.has-dropdown
 							%a{ href: board_games_path } Board Games
 							%ul.dropdown
+								%li.show-for-small-only
+									%a{href: board_games_path } All
 								%li
 									%a{href: new_board_game_path } New
+						%li.has-dropdown
+							%a{ href: game_plays_path } Game Plays
+							%ul.dropdown
+								%li.show-for-small-only
+									%a{ href: game_plays_path } All
+								%li
+									%a{ href: new_game_play_path } New
 						%li
 							%a{ href: "#" } Players
 					%ul.right

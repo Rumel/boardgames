@@ -2,6 +2,36 @@
 // FOUNDATION SETTINGS
 //
 
+// From Kuler
+// https://kuler.adobe.com/create/color-wheel/?base=2&rule=Complementary&selected=4&name=My%20Kuler%20Theme&mode=rgb&rgbvalues=0.07549019607843141,0.12495631916141225,0.7,0.307843137254902,0.3626674432150032,1,0.20784313725490197,0.27058823529411763,1,0.7,0.5529074373279308,0.005490196078431353,1,0.8322264389624056,0.207843137254902&swatchOrder=0,1,2,3,4
+
+@import "settings";
+
+$primary-color: $fourth-color;
+$secondary-color: $fifth-color;
+
+$body-bg: $third-color;
+$body-font-color: $first-color;
+
+$topbar-bg-color: $first-color;
+$topbar-dropdown-bg: $first-color;
+$topbar-dropdown-link-bg: $first-color;
+
+$topbar-link-bg-hover: darken($first-color, 5%) ;
+$topbar-link-bg-active: $primary-color;
+$topbar-link-bg-active-hover: darken($primary-color, 5%);
+
+$topbar-dropdown-label-bg: $first-color;
+
+// Top menu icon styles
+$topbar-menu-link-color-toggled: $fourth-color;
+$topbar-menu-icon-color-toggled: $fourth-color;
+
+
+
+
+
+
 // Uncomment to use rem-calc() in your settings
 // @import "foundation/functions";
 
@@ -52,8 +82,6 @@
 // We use these as default colors throughout
 // $primary-color: #008CBA;
 // $secondary-color: #e7e7e7;
-$primary-color: #3545FF;
-$secondary-color: #FF834E;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 

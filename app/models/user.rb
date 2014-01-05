@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :board_games
   has_many :game_plays
+  has_many :players
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token

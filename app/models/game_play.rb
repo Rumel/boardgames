@@ -1,6 +1,7 @@
 class GamePlay < ActiveRecord::Base
 	belongs_to :user
 	has_and_belongs_to_many :board_games
+	has_and_belongs_to_many :players
 
 	def board_game
 		if self.board_games.any?

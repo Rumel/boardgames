@@ -14,6 +14,7 @@ Boardgames::Application.routes.draw do
 
   resources :board_games
   resources :game_plays
+  resources :players
   resources :sessions, only: [:new, :create, :destroy]
 
   # Example of regular route:

@@ -1,16 +1,15 @@
-.row
-	%li.show-for-small-only
-		%a{href: game_play_path(game_play.id) }
-			.game-play-item-small
-				%h2
+%li.show-for-small-only
+	%a{href: game_play_path(game_play.id) }
+		.game-play-item-small
+			%h2
+				%strong= game_play.board_game.name
+			%h4= game_play.date_string
+%li.show-for-medium-up
+	%a{href: game_play_path(game_play.id) }
+		.game-play-item-medium
+			.medium-4.large-4.columns
+				%img.image-game-play-medium{src: game_play.board_game.image_url }
+			.medium-8.large-8.columns
+				%h1
 					%strong= game_play.board_game.name
-				%h4= game_play.date_string
-	%li.show-for-medium-up
-		%a{href: game_play_path(game_play.id) }
-			.game-play-item-medium
-				.medium-4.large-4.columns
-					%img.image-game-play-medium{src: game_play.board_game.image_url }
-				.medium-8.large-8.columns
-					%h1
-						%strong= game_play.board_game.name
-					%h3= game_play.date_string
+				%h3= game_play.date_string

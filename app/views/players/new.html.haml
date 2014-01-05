@@ -1,0 +1,11 @@
+.row
+	%h1.text-center 
+		%strong New Player
+
+= form_for @player, url: { action: "create" } do |f|
+	.row
+		= render 'shared/error_messages', object: f.object
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :name, placeholder: "Name"
+		.medium-8.large-6.columns.small-centered
+			= f.submit "Save", class: "button small right"

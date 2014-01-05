@@ -25,8 +25,13 @@
 									%a{ href: game_plays_path } All
 								%li
 									%a{ href: new_game_play_path } New
-						%li
-							%a{ href: "#" } Players
+						%li.has-dropdown
+							%a{ href: players_path } Players
+							%ul.dropdown
+								%li.show-for-small-only
+									%a{ href: players_path } All
+								%li
+									%a{ href: new_player_path } New
 					%ul.right
 						%li.has-dropdown
 							%a{ href: "#" }= current_user.name

@@ -17,4 +17,8 @@ class GamePlay < ActiveRecord::Base
 		
 		self.board_games.push board_game
 	end
+
+	def date_string
+		self.created_at.strftime("%-m/%d/%y")
+	end
 end

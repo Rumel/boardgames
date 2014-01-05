@@ -1,0 +1,13 @@
+%br
+.row
+	.medium-6.large-6.columns.right.text-center
+		%h1 
+			%strong 
+				= @game_play.board_game.name
+		%h3= @game_play.date_string
+	.medium-6.large-6.columns.left
+		%img.image-center{ src: @game_play.board_game.image_url }
+		%br
+	.medium-6.large-6.columns.right.text-center
+		%a.button.large.columns{href: edit_game_play_path(@game_play.id) } Edit
+		%a.button.large.columns.disabled Delete

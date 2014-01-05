@@ -16,6 +16,10 @@ class GamePlaysController < ApplicationController
 	def update
 	end
 
+	def show
+		@game_play = GamePlay.find(params[:id])
+	end
+
 	def create
 		@game_play = current_user.game_plays.build()
 		@game_play.board_game = BoardGame.find_by_id(params[:board_game_id])

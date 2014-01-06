@@ -1,4 +1,8 @@
 .row
-	.block-grid
-		%ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
-			= render @board_games
+	- if @board_games.count > 0
+		.block-grid
+			%ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
+				= render @board_games
+	- else
+		%a{ href: new_board_game_path }
+			%h1 Add some games!

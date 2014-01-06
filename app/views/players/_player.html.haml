@@ -1,3 +1,5 @@
 %li
 	.large-12.columns
-		%h3= player.name
+		%h3
+			%a{ href: player_path(player.id) }= player.name
+			

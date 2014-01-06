@@ -1,9 +1,10 @@
 %br
 .row
 	.medium-6.large-6.columns.right.text-center
-		%h1 
-			%strong 
-				= @game_play.board_game.name
+		%a{ href: board_game_path(@game_play.board_game.id) }
+			%h1 
+				%strong 
+					= @game_play.board_game.name
 		%h3= @game_play.date_string
 	.medium-6.large-6.columns.left
 		%img.image-center{ src: @game_play.board_game.image_url }
@@ -11,3 +12,11 @@
 	.medium-6.large-6.columns.right.text-center
 		%a.button.large.columns{href: edit_game_play_path(@game_play.id) } Edit
 		%a.button.large.columns.disabled Delete
+.row
+	.medium-6.large-6.columns.left
+		%h1.text-center
+			%strong= @game_play.player_count_string
+		- @game_play.players.each do |p|
+			%h2
+				%a{href: player_path(p.id) }= p.name
+				

@@ -4,6 +4,9 @@
 			%h2
 				%strong= game_play.board_game.name
 			%h4= game_play.date_string
+			%h5= game_play.player_count_string
+			%p= game_play.players_string
+
 %li.show-for-medium-up
 	%a{href: game_play_path(game_play.id) }
 		.game-play-item-medium
@@ -13,3 +16,5 @@
 				%h1
 					%strong= game_play.board_game.name
 				%h3= game_play.date_string
+				%h5= game_play.player_count_string
+				%p= game_play.players_string

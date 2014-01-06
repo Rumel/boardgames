@@ -1,2 +1,6 @@
-%ul.no-bullet
-	= render @game_plays
+.row
+	- if @game_plays.count > 0
+		%ul.no-bullet
+			= render @game_plays
+	- else
+		%h1 Go play some games!

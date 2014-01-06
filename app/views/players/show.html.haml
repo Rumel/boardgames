@@ -1,0 +1,13 @@
+%br
+.row.text-center
+	%h1 
+		%strong 
+			= @player.name
+- if @player.game_plays.count > 0
+	.row.text-center
+		%h1= "Games Played: #{@player.game_plays.count}"
+	.row
+		= render @player.game_plays
+- else
+	.row.text-center
+		%h1 No games yet :(

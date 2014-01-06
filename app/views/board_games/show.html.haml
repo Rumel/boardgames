@@ -11,5 +11,11 @@
 	.medium-6.large-6.columns.right.text-center
 		%a.button.large.columns{href: edit_board_game_path(@board_game.id) } Edit
 		%a.button.large.columns.disabled Delete
-/ .row
-/ 	= render @board_game.game_plays
+.row
+	.medium-6.large-6.columns.text-center
+		%h1= "Played: #{@board_game.game_plays.count}"
+		- @board_game.game_plays.each do |gp|
+			.board-game-game-play
+				%h3= gp.date_string
+				%h5= gp.players_string
+				%br

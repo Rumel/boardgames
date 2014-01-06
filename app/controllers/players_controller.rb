@@ -18,6 +18,10 @@ class PlayersController < ApplicationController
 		@players = current_user.players.sort_by { |p| p.name }
 	end
 
+	def show
+		@player = Player.find_by_id(params[:id])
+	end
+
 	private
 
 		def player_params

@@ -38,4 +38,9 @@ class GamePlaysController < ApplicationController
 			render 'new'
 		end
 	end
+
+	def destroy
+		GamePlay.destroy(params[:id])
+		redirect_to game_plays_path
+	end
 end

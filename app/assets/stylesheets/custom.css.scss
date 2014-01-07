@@ -27,6 +27,16 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 10px;
 }
 
+.game-play-checkbox {
+	margin: 2px;
+}
+
+.game-play-label {
+	color: white;
+	display: inline-block;
+	margin-right: 10px;
+}
+
 .game-play-item-small {
 	background-color: $first-color;
 	padding: 10px;

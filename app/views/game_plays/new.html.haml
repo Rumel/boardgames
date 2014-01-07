@@ -7,6 +7,7 @@
 		.medium-8.large-6.columns.small-centered
 			= select_tag :board_game_id, options_from_collection_for_select(@board_games, :id, :name)
 		.medium-8.large-6.columns.small-centered
-			= f.collection_check_boxes(:player_ids, @players, :id, :name)
+			= f.collection_check_boxes(:player_ids, @players, :id, :name) do |b|
+				- b.label(class: "game-play-label") { b.check_box(class: "game-play-checkbox") + " " + b.text }
 		.medium-8.large-6.columns.small-centered
 			= f.submit "Save", class: "button small right"

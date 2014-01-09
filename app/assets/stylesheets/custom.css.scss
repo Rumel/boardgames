@@ -4,6 +4,14 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 }
 
+p {
+	color: white;
+}
+
+textarea {
+	height: 125px;
+}
+
 .block-grid-tile {
 	margin: 10px;
 	background-color: $first-color;
@@ -48,4 +56,10 @@ h1, h2, h3, h4, h5, h6 {
 	overflow: auto;
 	border: 3px solid black;
 	margin: 10px;
+}
+
+.label {
+	color: white;
+	background-color: inherit;
+	font-size: 14px;
 }

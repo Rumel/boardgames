@@ -44,7 +44,8 @@ class BoardGamesController < ApplicationController
 	private
 
 		def board_game_params
-			params.require(:board_game).permit(:name, :image_url)
+			params.require(:board_game).permit(:name, :image_url, :description,
+				:rule_book_link, :starting_player_rule, :round_based, :rounds)
 		end
 
 		def correct_user

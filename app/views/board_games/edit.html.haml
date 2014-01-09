@@ -2,11 +2,23 @@
 .row.text-center
 	%h1
 		%strong Edit Board Game
+
 = form_for @board_game do |f|
 	.row
+		= render 'shared/error_messages', object: f.object
 		.medium-8.large-6.columns.small-centered
 			= f.text_field :name, placeholder: "Name"
 		.medium-8.large-6.columns.small-centered
 			= f.text_field :image_url, placeholder: "Image Url"
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :starting_player_rule, placeholder: "Starting Player Rule"
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :rule_book_link, placeholder: "Rule book link"
+		.medium-8.large-6.columns.small-centered
+			= f.label "Round based", for: :board_game_round_based, class: "label"
+			= f.check_box :round_based
+			= f.number_field :rounds, placeholder: "Rounds"
+		.medium-8.large-6.columns.small-centered
+			= f.text_area :description, placeholder: "Description"
 		.medium-8.large-6.columns.small-centered
 			= f.submit "Save changes", class: "button columns"

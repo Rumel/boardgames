@@ -12,10 +12,23 @@
 		%a.button.large.columns{href: edit_board_game_path(@board_game.id) } Edit
 		%a.button.large.columns.disabled Delete
 .row
-	.medium-6.large-6.columns.text-center
+	.medium-6.large-6.columns.right
+		- if !@board_game.starting_player_rule.blank?
+			%h1 Starting Player
+			%h4= @board_game.starting_player_rule
+		- if !@board_game.rule_book_link.blank?
+			%h1
+				%a{href: @board_game.rule_book_link} Rulebook
+		- if @board_game.round_based?
+			%h1= "Rounds: #{@board_game.rounds}"
+		- if !@board_game.description.blank?	
+			%h1 Description
+			%p= @board_game.description
+	.medium-6.large-6.columns.text-center.left
 		%h1= "Played: #{@board_game.game_plays.count}"
 		- @board_game.game_plays.each do |gp|
 			.board-game-game-play
 				%h3= gp.date_string
 				%h5= gp.players_string
 				%br
+	

@@ -35,7 +35,7 @@ class BoardGamesController < ApplicationController
 		@board_game = BoardGame.find(params[:id])
 		if @board_game.update_attributes(board_game_params)
 			flash[:success] = "Board game updated"
-			redirect_to board_games_path
+			redirect_to board_game_path(@board_game.id)
 		else
 			render 'edit'
 		end

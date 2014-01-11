@@ -7,7 +7,7 @@
 	.row.text-center
 		%h1= "Games Played: #{@player.game_plays.count}"
 	.row
-		= render @player.game_plays
+		= render @player.game_plays.reverse
 - else
 	.row.text-center
 		%h1 No games yet :(

@@ -39,6 +39,15 @@ class GamePlaysController < ApplicationController
 		end
 	end
 
+	def duplicate
+		gp = GamePlay.find_by_id(params[:id])
+		dup = gp.dup
+		dup.board_game = gp.board_game
+		dup.players = gp.players
+		dup.save
+		redirect_to game_plays_path
+	end
+
 	def destroy
 		GamePlay.destroy(params[:id])
 		redirect_to game_plays_path

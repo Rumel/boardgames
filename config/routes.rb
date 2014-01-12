@@ -17,6 +17,8 @@ Boardgames::Application.routes.draw do
   resources :players
   resources :sessions, only: [:new, :create, :destroy]
 
+  post 'game_play/:id/duplicate', to: 'game_plays#duplicate', as: 'duplicate_game_play'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

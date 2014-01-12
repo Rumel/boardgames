@@ -18,3 +18,5 @@
 				%h3= game_play.date_string
 				%h5= game_play.player_count_string
 				%p= game_play.players_string
+			.medium-8.large-8.columns
+				=link_to "Duplicate", duplicate_game_play_path(game_play.id), method: :post

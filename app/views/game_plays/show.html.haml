@@ -11,6 +11,7 @@
 		%br
 	.medium-6.large-6.columns.right.text-center
 		%a.button.large.columns{href: edit_game_play_path(@game_play.id) } Edit
+		= link_to 'Duplicate', duplicate_game_play_path(@game_play.id), method: :post, class: "button large columns"
 		= link_to 'Delete', game_play_path(@game_play.id),
 			confirm: "Are you sure?", method: :delete, class: "button large columns"
 .row

@@ -6,7 +6,7 @@
 			%h4= game_play.date_string
 			%h5= game_play.player_count_string
 			%p= game_play.players_string
-
+			= link_to "Duplicate", duplicate_game_play_path(game_play.id), method: :post
 %li.show-for-medium-up
 	%a{href: game_play_path(game_play.id) }
 		.game-play-item-medium
@@ -19,4 +19,4 @@
 				%h5= game_play.player_count_string
 				%p= game_play.players_string
 			.medium-8.large-8.columns
-				=link_to "Duplicate", duplicate_game_play_path(game_play.id), method: :post
+				= link_to "Duplicate", duplicate_game_play_path(game_play.id), method: :post

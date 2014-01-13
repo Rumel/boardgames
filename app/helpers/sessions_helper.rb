@@ -3,7 +3,9 @@ module SessionsHelper
 	def sign_in(user)
 		remember_token = User.new_remember_token
 		cookies.permanent[:remember_token] = remember_token
-		user.update_attribute(:remember_token, User.encrypt(remember_token))
+		remember_tokens = user.remember_tokens.split("|")
+		remember_tokens.push User.encrypt(remember_token)
+		user.update_attribute(:remember_tokens, remember_tokens.join("|") )
 		self.current_user = user
 	end
 
@@ -17,11 +19,14 @@ module SessionsHelper
 
 	def current_user
 		remember_token = User.encrypt(cookies[:remember_token])
-		@current_user ||= User.find_by(remember_token: remember_token)
+		@current_user ||= User.where("remember_tokens LIKE ?", "%#{remember_token}%").first
 	end
 
 	def sign_out
-		current_user.update_attribute(:remember_token, User.encrypt(User.new_remember_token))
+		remember_tokens = current_user.remember_tokens.split("|")
+		remember_token = cookies[:remember_token]
+		remember_tokens.delete User.encrypt(remember_token)
+		current_user.update_attribute(:remember_tokens, remember_tokens.join("|") )
 		cookies.delete(:remember_token)
 		self.current_user = nil
 	end

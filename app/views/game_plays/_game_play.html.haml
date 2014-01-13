@@ -11,16 +11,15 @@
 	%a{href: game_play_path(game_play.id) }
 		.game-play-item-medium
 			.medium-4.large-4.columns
-				%img.image-game-play-medium{src: game_play.board_game.image_url }
+				%img.image-game-play-medium.image-center{src: game_play.board_game.image_url }
+				= link_to "Duplicate", duplicate_game_play_path(game_play.id), method: :post, class: "button columns"
 			.medium-8.large-8.columns
 				%h1
 					%strong= game_play.board_game.name
 				%h3= game_play.date_string
 				%h5= game_play.player_count_string
 				%p= game_play.players_string
-			.medium-8.large-8.columns
 				- if !game_play.description.blank?
 					%h1 Description
 					%p= game_play.description
-			.medium-8.large-8.columns
-				= link_to "Duplicate", duplicate_game_play_path(game_play.id), method: :post
+				

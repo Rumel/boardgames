@@ -5,9 +5,15 @@
 = form_for @game_play, url: { action: "create" } do |f|
 	.row
 		.medium-8.large-6.columns.small-centered
-			= select_tag :board_game_id, options_from_collection_for_select(@board_games, :id, :name)
+			= select_tag :board_game_id, options_from_collection_for_select(@board_games, :id, :name), prompt: "Please select a game"
 		.medium-8.large-6.columns.small-centered
-			= f.collection_check_boxes(:player_ids, @players, :id, :name) do |b|
-				- b.label(class: "game-play-label") { b.check_box(class: "game-play-checkbox") + " " + b.text }
+			- @players.each do |p|
+				%label.game-play-label
+					= check_box_tag 'game_play[player_ids][]', p.id, false, class: "game-play-checkbox"
+					= p.name
+			/ = f.collection_check_boxes(:player_ids, @players, :id, :name) do |b|
+			/ 	- b.label(class: "game-play-label") { b.check_box(class: "game-play-checkbox") + " " + b.text }
+		.medium-8.large-6.columns.small-centered
+			= f.text_area :description, placeholder: "Description"
 		.medium-8.large-6.columns.small-centered
 			= f.submit "Save", class: "button small right"

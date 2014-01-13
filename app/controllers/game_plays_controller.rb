@@ -40,7 +40,7 @@ class GamePlaysController < ApplicationController
 			update_and_edit(@game_play)
 			render 'new'
 		else
-			update_board_gam(@game_play)
+			update_board_game(@game_play)
 			update_player_ids(@game_play)
 			
 			if @game_play.save

@@ -26,7 +26,7 @@
 			%p= @board_game.description
 	.medium-6.large-6.columns.text-center.left
 		%h1= "Played: #{@board_game.game_plays.count}"
-		- @board_game.game_plays.each do |gp|
+		- @board_game.game_plays.reverse.each do |gp|
 			.board-game-game-play
 				%h3= gp.date_string
 				%h5= gp.players_string

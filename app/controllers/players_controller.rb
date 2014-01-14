@@ -22,9 +22,22 @@ class PlayersController < ApplicationController
 		@player = Player.find_by_id(params[:id])
 	end
 
+	def edit
+		@player = Player.find_by_id(params[:id])
+	end
+
+	def update
+		@player = Player.find_by_id(params[:id])
+		if @player.update_attributes(player_params)
+			redirect_to player_path(@player.id)
+		else
+			render 'edit'
+		end
+	end
+
 	private
 
 		def player_params
-			params.require(:player).permit(:name)
+			params.require(:player).permit(:name, :facebook)
 		end
 end

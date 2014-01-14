@@ -12,6 +12,10 @@ textarea {
 	height: 125px;
 }
 
+.block {
+	display: block;
+}
+
 .block-grid-tile {
 	margin: 10px;
 	background-color: $first-color;
@@ -34,6 +38,10 @@ textarea {
 	width: 200px;
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.inline {
+	display: inline;
 }
 
 .game-play-checkbox {

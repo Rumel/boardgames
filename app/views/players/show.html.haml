@@ -3,6 +3,12 @@
 	%h1 
 		%strong 
 			= @player.name
+.row
+	.medium-6.large-6.columns
+		%img.image-center{ src: @player.image_url(640, 480) }
+		%br
+	.medium-6.large-6.columns.text-center
+		%a.button.columns{ href: edit_player_path(@player.id) } Edit
 - if @player.game_plays.count > 0
 	.row.text-center
 		%h1= "Games Played: #{@player.game_plays.count}"

@@ -1,5 +1,6 @@
 class PlayersController < ApplicationController
 	before_action :signed_in_user
+	before_action :correct_user, only: [:edit, :update, :show]
 
 	def new
 		@player = Player.new
@@ -39,5 +40,11 @@ class PlayersController < ApplicationController
 
 		def player_params
 			params.require(:player).permit(:name, :facebook)
+		end
+
+		def correct_user
+			unless current_user.players.collect { |p| p.id.to_s }.include? params[:id]
+				redirect_to players_path
+			end
 		end
 end

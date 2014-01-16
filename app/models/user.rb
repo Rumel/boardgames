@@ -1,3 +1,20 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#  password_digest :string(255)
+#  remember_tokens :string(255)
+#
+# Indexes
+#
+#  index_users_on_email  (email) UNIQUE
+#
+
 class User < ActiveRecord::Base
   	has_many :board_games
   	has_many :game_plays

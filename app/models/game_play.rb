@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: game_plays
+#
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#  description :text
+#
+
 class GamePlay < ActiveRecord::Base
 	belongs_to :user
 	has_and_belongs_to_many :board_games

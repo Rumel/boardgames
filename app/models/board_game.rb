@@ -21,4 +21,12 @@ class BoardGame < ActiveRecord::Base
 
 	validates :name, presence: true, uniqueness: { case_sensitive: false, scope: :user }
 	validates :rounds, if: :round_based?, numericality: { only_integer: true, greater_than: 0 }
+
+	def image(width=200, height=200)
+		unless self.image_url.blank?
+			image_url
+		else
+			"http://placekitten.com/g/#{width}/#{height}"
+		end
+	end
 end

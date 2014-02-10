@@ -7,7 +7,7 @@
 					= @game_play.board_game.name
 		%h3= @game_play.date_string
 	.medium-6.large-6.columns.left
-		%img.image-center{ src: @game_play.board_game.image_url }
+		%img.image-center{ src: @game_play.board_game.image }
 		%br
 	.medium-6.large-6.columns.right.text-center
 		%a.button.large.columns{href: edit_game_play_path(@game_play.id) } Edit
@@ -24,7 +24,7 @@
 			%strong= @game_play.player_count_string
 		- @game_play.players.each do |p|
 			%a.button.columns.text-left{href: player_path(p.id) }
-				%img.inline{ src: p.image_url, style: "margin-right: 10px;" }
+				%img.inline{ src: p.image, style: "margin-right: 10px;" }
 				%h2.inline
 					%strong= p.name
 				

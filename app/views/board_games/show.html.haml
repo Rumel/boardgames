@@ -6,7 +6,7 @@
 			%strong 
 				= @board_game.name
 	.medium-6.large-6.columns.left
-		%img.image-center{ src: @board_game.image_url }
+		%img.image-center{ src: @board_game.image(350,350) }
 		%br
 	.medium-6.large-6.columns.right.text-center
 		%a.button.large.columns{href: edit_board_game_path(@board_game.id) } Edit

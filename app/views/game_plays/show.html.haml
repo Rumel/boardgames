@@ -24,7 +24,7 @@
 			%strong= @game_play.player_count_string
 		- @game_play.players.each do |p|
 			%a.button.columns.text-left{href: player_path(p.id) }
-				%img.inline{ src: p.image, style: "margin-right: 10px;" }
+				%img.inline{ src: p.image_url, style: "margin-right: 10px;" }
 				%h2.inline
 					%strong= p.name
 				

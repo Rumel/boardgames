@@ -2,7 +2,8 @@
 	%a{href: game_play_path(game_play.id) }
 		.game-play-item-small
 			%h2
-				%strong= game_play.board_game.name
+				%a{href: board_game_path(game_play.board_game.id) }
+					%strong= game_play.board_game.name
 			%h4= game_play.date_string
 			%h5= game_play.player_count_string
 			%p= game_play.players_string
@@ -15,7 +16,8 @@
 				= link_to "Duplicate", duplicate_game_play_path(game_play.id), method: :post, class: "button columns"
 			.medium-8.large-8.columns
 				%h1
-					%strong= game_play.board_game.name
+					%a{href: board_game_path(game_play.board_game.id) }
+						%strong= game_play.board_game.name
 				%h3= game_play.date_string
 				%h5= game_play.player_count_string
 				%p= game_play.players_string

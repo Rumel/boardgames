@@ -33,7 +33,7 @@ class GamePlay < ActiveRecord::Base
 	end
 
 	def date_string
-		self.created_at.localtime.strftime("%-m/%d/%y")
+		(self.created_at.localtime + Time.zone_offset('CST')).strftime("%-m/%d/%y")
 	end
 
 	def players_string

@@ -2,7 +2,7 @@ class GamePlaysController < ApplicationController
 	before_action :signed_in_user
 
 	def index
-		@game_plays = current_user.game_plays.reverse
+		@game_plays = current_user.game_plays.paginate(page: params[:page], per_page: 10).order('created_at DESC')
 	end
 
 	def edit

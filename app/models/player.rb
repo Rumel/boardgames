@@ -15,7 +15,7 @@ class Player < ActiveRecord::Base
 	has_and_belongs_to_many :game_plays
 
 	validates :name, presence: true, length: { maximum: 50 },
-	 uniqueness: { case_sensitive: false}
+	 uniqueness: { case_sensitive: false, scope: :user }
 
 	def image_url(width=100, height=100)
 		unless self.facebook.blank?

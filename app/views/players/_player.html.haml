@@ -1,5 +1,6 @@
 %li
 	.large-12.columns
-		%h3
-			%a{ href: player_path(player.id) }= player.name
-			
+		.player-div
+			%img.inline{src: player.image_url(150,150) }
+			%h3.inline
+				%a{ href: player_path(player.id) }= player.name

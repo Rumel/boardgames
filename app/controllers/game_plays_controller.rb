@@ -65,6 +65,11 @@ class GamePlaysController < ApplicationController
 		redirect_to game_plays_path
 	end
 
+	def stats
+		@game_plays = current_user.game_plays
+		@months = Date::MONTHNAMES
+	end
+
 	private
 		def game_play_params
 			params.require(:game_play).permit(:player_ids, :board_game_id, :description)

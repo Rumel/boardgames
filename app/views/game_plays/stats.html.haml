@@ -1,0 +1,8 @@
+.row
+	%h1= "Total Game Play Count: #{@game_plays.count}"
+	- @game_plays.group_by { |gp| gp.created_at.year }.each do |year, gp_year|
+		%h2= "#{year}: #{gp_year.count}"
+		%ul
+		- gp_year.group_by { |gp| gp.created_at.month }.each do |month, gp_month|
+			%li
+				%h3= "#{@months[month]}: #{gp_month.count}"

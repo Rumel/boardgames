@@ -12,12 +12,15 @@ Boardgames::Application.routes.draw do
   get 'signin', to: 'sessions#new'
   get 'signout', to: 'sessions#destroy'
 
+  get 'game_plays/stats', to: 'game_plays#stats', as: 'stats_game_plays'
+
   resources :board_games
   resources :game_plays
   resources :players
   resources :sessions, only: [:new, :create, :destroy]
 
   post 'game_play/:id/duplicate', to: 'game_plays#duplicate', as: 'duplicate_game_play'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

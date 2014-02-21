@@ -12,7 +12,7 @@ Boardgames::Application.routes.draw do
   get 'signin', to: 'sessions#new'
   get 'signout', to: 'sessions#destroy'
 
-  get 'game_plays/stats', to: 'game_plays#stats', as: 'stats_game_plays'
+  get 'game_plays/stats', to: 'game_plays#stats', as: 'stats_game_play'
 
   resources :board_games
   resources :game_plays

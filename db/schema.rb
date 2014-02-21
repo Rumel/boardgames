@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140114190642) do
+ActiveRecord::Schema.define(version: 20140221042134) do
 
   create_table "board_games", force: true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140114190642) do
     t.string   "starting_player_rule"
     t.boolean  "round_based"
     t.integer  "rounds"
+    t.string   "game_type"
   end
 
   create_table "board_games_game_plays", force: true do |t|
@@ -61,5 +62,12 @@ ActiveRecord::Schema.define(version: 20140114190642) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
+
+  create_table "winners", force: true do |t|
+    t.integer  "game_play_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

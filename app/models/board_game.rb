@@ -29,4 +29,17 @@ class BoardGame < ActiveRecord::Base
 			"http://placekitten.com/g/#{width}/#{height}"
 		end
 	end
+
+ 	def board_game?
+ 		if game_type.present?
+ 			return game_type == "boardgame"
+ 		end
+
+ 		#Default to true
+ 		true
+ 	end
+
+ 	def card_game?
+ 		return game_type == "cardgame"
+ 	end
 end

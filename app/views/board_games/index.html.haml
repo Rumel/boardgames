@@ -1,8 +1,18 @@
 .row
-	- if @board_games.count > 0
+	- if @board_games.any?
+		.text-center
+			%h1 Board Games
 		.block-grid
 			%ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
-				= render @board_games
+				- @board_games.each do |bg|
+					= render 'game', game: bg
 	- else
 		%a{ href: new_board_game_path }
 			%h1 Add some games!
+	- if @card_games.any?
+		.text-center
+			%h1 Card Games
+		.block-grid
+			%ul.small-block-grid-2.medium-block-grid-3.large-block-grid-4
+				- @card_games.each do |c|
+					= render 'game', game: c

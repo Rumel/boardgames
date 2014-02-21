@@ -1,0 +1,25 @@
+= form_for @board_game, url: { action: @url } do |f|
+	.row
+		= render 'shared/error_messages', object: f.object
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :name, placeholder: "Name"
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :image_url, placeholder: "Image Url"
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :starting_player_rule, placeholder: "Starting Player Rule"
+		.medium-8.large-6.columns.small-centered
+			= f.text_field :rule_book_link, placeholder: "Rule book link"
+		.medium-8.large-6.columns.small-centered
+			= f.label "Round based", for: :board_game_round_based, class: "label"
+			= f.check_box :round_based
+			= f.number_field :rounds, placeholder: "Rounds"
+		.medium-8.large-6.columns.small-centered
+			%h4 Game Type
+			= f.radio_button :game_type, "boardgame"
+			= f.label :game_type_boardgame, "Board Game"
+			= f.radio_button :game_type, "cardgame"
+			= f.label :game_type_cardgame, "Card Game"
+		.medium-8.large-6.columns.small-centered
+			= f.text_area :description, placeholder: "Description"
+		.medium-8.large-6.columns.small-centered
+			= f.submit "Save changes", class: "button columns"

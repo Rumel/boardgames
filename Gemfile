@@ -27,7 +27,7 @@ end
 group :test do
 	gem 'capybara'
 	gem 'factory_girl_rails'
-	gem 'simplecov', require: false
+    gem 'simplecov', '~> 0.7.1', require: false
 end
 
 group :production do
